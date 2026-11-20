@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
 
+import { SiteHeader } from "@/components/layout/site-header";
 import { site } from "@/config/site";
+import { lampScript } from "@/features/lamp";
+import { SoundProvider } from "@/features/sound";
 
 import "./globals.css";
 
@@ -30,8 +33,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={courierPrime.variable}>
-      <body className="flex min-h-dvh flex-col">{children}</body>
+    // The lamp script may switch data-lamp before React loads, hence suppressHydrationWarning.
+    <html
+      lang="en"
+      data-lamp="off"
+      className={courierPrime.variable}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: lampScript }} />
+      </head>
+      <body className="flex min-h-dvh flex-col">
+        <SoundProvider>
+          <SiteHeader />
+          {children}
+        </SoundProvider>
+      </body>
     </html>
   );
 }

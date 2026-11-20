@@ -13,23 +13,73 @@
   --color-room: #0e0d0b;
   --color-ribbon-red: #c23b2e;
   --color-amber: #f2b33d;
+  --color-amber-light: #f6c866;
+  --color-amber-deep: #d9952a;
   --color-lamp: #ffebc4;
 
   --color-rail-highlight: #48484a;
   --color-rail-base: #1d1d1e;
   --color-rail-shadow: #0e0e0f;
+  --color-rail-clamp: #161616;
   --color-carriage-top: #4b4945;
   --color-carriage-bottom: #2e2d2b;
   --color-carriage-guide: #1a1a1a;
+  --color-carriage-guide-night: #2a2926;
+  --color-slit-off: #1a1916;
 
   --color-light-green: #5fd35f;
   --color-light-amber: #f5962a;
   --color-light-red: #ef4a3c;
 
+  --color-window-close: #ff5f57;
+  --color-window-minimize: #febc2e;
+  --color-window-zoom: #28c840;
+
   --ease-typewriter: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* The T reaching up to the typing line, and its crossbar swelling as it lands. */
+  --animate-strike: strike var(--duration-strike) var(--ease-typewriter);
+  --animate-strike-bar: strike-bar var(--duration-strike) var(--ease-typewriter);
+
+  @keyframes strike {
+    40% {
+      height: calc(var(--stem-height) + var(--strike-reach));
+    }
+  }
+  @keyframes strike-bar {
+    40% {
+      scale: 1.3;
+    }
+  }
+}
+
+/* ---- Timings and the typewriter's shape (used as var(...) in components) ---- */
+:root {
   --duration-strike: 150ms;
+  --duration-carriage-advance: 140ms;
   --duration-carriage-return: 420ms;
   --duration-lamp: 600ms;
+
+  --typed-line-height: 2rem;
+  --rail-gap: 0.5rem;
+  --guide-height: 1.25rem;
+  --crossbar-width: 1.125rem;
+  --crossbar-height: 0.25rem;
+  --stem-width: 0.25rem;
+  --stem-height: calc(var(--guide-height) - var(--crossbar-height));
+  /* From the T at rest up to the middle of the typing line just above it. */
+  --strike-reach: calc(var(--rail-gap) + var(--typed-line-height) / 2);
+  --carriage-width: 4.75rem;
+  --carriage-body-height: 2rem;
+  --rail-height: calc(var(--guide-height) + var(--carriage-body-height));
+  --tube-height: 0.75rem;
+  --clamp-width: 0.875rem;
+  --clamp-height: 1.5rem;
+  --slit-width: 1.375rem;
+  --slit-height: 0.1875rem;
+  --indicator-size: 0.4375rem;
+  --lamp-beam-width: 40rem;
+  --lamp-beam-height: 34rem;
 }
 
 /* ---- Values that change when the lamp is switched on ---- */
@@ -41,7 +91,7 @@
   --hairline: rgb(28 26 24 / 0.14);
   --accent: var(--color-ribbon-red);
   --sheet: #fbf6eb;
-  --lamp-on: 0;
+  --button-shadow: 0 10px 30px -10px rgb(28 26 24 / 0.55);
 }
 
 :root[data-lamp="on"] {
@@ -52,7 +102,7 @@
   --hairline: rgb(239 231 216 / 0.12);
   --accent: var(--color-amber);
   --sheet: var(--color-paper-night);
-  --lamp-on: 1;
+  --button-shadow: 0 10px 40px -8px rgb(242 179 61 / 0.55);
 }
 
 /* ...exposed to Tailwind too: bg-surface, text-text-soft, border-hairline, ... */
@@ -64,4 +114,5 @@
   --color-hairline: var(--hairline);
   --color-accent: var(--accent);
   --color-sheet: var(--sheet);
+  --shadow-button: var(--button-shadow);
 }

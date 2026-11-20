@@ -1,5 +1,9 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
+@import "../styles/utilities.css";
+
+/* `lamp-on:` styles apply while the night lamp is on (data-lamp="on" on <html>). */
+@custom-variant lamp-on (&:where([data-lamp="on"], [data-lamp="on"] *));
 
 @layer base {
   body {
@@ -7,5 +11,14 @@
     transition:
       background-color var(--duration-lamp) var(--ease-typewriter),
       color var(--duration-lamp) var(--ease-typewriter);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0ms !important;
+      transition-duration: 0ms !important;
+    }
   }
 }

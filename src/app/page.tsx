@@ -1,9 +1,9 @@
-import { site } from "@/config/site";
+import { Hero } from "@/features/hero";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-1 items-center justify-center">
-      <h1 className="text-4xl font-bold">{site.name}</h1>
+    <main>
+      <Hero />
     </main>
   );
 }
