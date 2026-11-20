@@ -1,13 +1,13 @@
 import { Container } from "@/components/layout/container";
-import { MacWindow } from "@/components/ui/mac-window";
 
 import { heroContent } from "../content";
 import { TypewriterDemo } from "../typewriter/typewriter-demo";
+import { AppScreenshot } from "./app-screenshot";
 import { HeroActions } from "./hero-actions";
 
 /**
  * The first screen: the headline and the download, centred, with a live
- * typewriter below them typing what Strike is. The app's window rises from below.
+ * typewriter below them typing what Strike is, then the app itself.
  */
 export function Hero() {
   const { headline, subtitle, description, yourTurn } = heroContent;
@@ -33,11 +33,9 @@ export function Hero() {
         <TypewriterDemo text={description} yourTurnHint={yourTurn} />
       </div>
 
-      {/* The app itself, peeking up from below. A screenshot goes here. */}
-      <Container className="mt-12">
-        <div className="h-64 overflow-hidden sm:h-80">
-          <MacWindow className="h-144" />
-        </div>
+      {/* The app itself, by day or by lamplight to match the page. */}
+      <Container className="mt-12 pb-16">
+        <AppScreenshot />
       </Container>
     </section>
   );

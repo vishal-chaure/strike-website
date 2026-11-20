@@ -33,10 +33,6 @@
   --color-light-amber: #f5962a;
   --color-light-red: #ef4a3c;
 
-  --color-window-close: #ff5f57;
-  --color-window-minimize: #febc2e;
-  --color-window-zoom: #28c840;
-
   --ease-typewriter: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   /* The T reaching up to the typing line, and its crossbar swelling as it lands. */
