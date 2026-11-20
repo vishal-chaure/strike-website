@@ -1,0 +1,67 @@
+/*
+ * Strike's design tokens: the same paper, ink, lamp and carriage as the Mac app.
+ * Components use these (as Tailwind classes or CSS variables), never raw values.
+ */
+
+/* ---- Fixed values: become Tailwind utilities (bg-paper, text-ink, ...) ---- */
+@theme {
+  --font-typewriter: var(--font-courier-prime), "Courier New", monospace;
+
+  --color-paper: #f4ecdd;
+  --color-paper-night: #4e4a44;
+  --color-ink: #1c1a18;
+  --color-room: #0e0d0b;
+  --color-ribbon-red: #c23b2e;
+  --color-amber: #f2b33d;
+  --color-lamp: #ffebc4;
+
+  --color-rail-highlight: #48484a;
+  --color-rail-base: #1d1d1e;
+  --color-rail-shadow: #0e0e0f;
+  --color-carriage-top: #4b4945;
+  --color-carriage-bottom: #2e2d2b;
+  --color-carriage-guide: #1a1a1a;
+
+  --color-light-green: #5fd35f;
+  --color-light-amber: #f5962a;
+  --color-light-red: #ef4a3c;
+
+  --ease-typewriter: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-strike: 150ms;
+  --duration-carriage-return: 420ms;
+  --duration-lamp: 600ms;
+}
+
+/* ---- Values that change when the lamp is switched on ---- */
+:root {
+  --surface: var(--color-paper);
+  --text: var(--color-ink);
+  --text-soft: rgb(28 26 24 / 0.62);
+  --text-faint: rgb(28 26 24 / 0.4);
+  --hairline: rgb(28 26 24 / 0.14);
+  --accent: var(--color-ribbon-red);
+  --sheet: #fbf6eb;
+  --lamp-on: 0;
+}
+
+:root[data-lamp="on"] {
+  --surface: var(--color-room);
+  --text: #efe7d8;
+  --text-soft: rgb(239 231 216 / 0.62);
+  --text-faint: rgb(239 231 216 / 0.38);
+  --hairline: rgb(239 231 216 / 0.12);
+  --accent: var(--color-amber);
+  --sheet: var(--color-paper-night);
+  --lamp-on: 1;
+}
+
+/* ...exposed to Tailwind too: bg-surface, text-text-soft, border-hairline, ... */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-text-soft: var(--text-soft);
+  --color-text-faint: var(--text-faint);
+  --color-hairline: var(--hairline);
+  --color-accent: var(--accent);
+  --color-sheet: var(--sheet);
+}

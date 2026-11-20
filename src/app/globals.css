@@ -1,1 +1,11 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
+
+@layer base {
+  body {
+    @apply bg-surface font-typewriter text-text antialiased;
+    transition:
+      background-color var(--duration-lamp) var(--ease-typewriter),
+      color var(--duration-lamp) var(--ease-typewriter);
+  }
+}
