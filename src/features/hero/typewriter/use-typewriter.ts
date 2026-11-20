@@ -36,16 +36,16 @@ export type TypewriterState = {
 
 /**
  * Plays the description onto the page letter by letter (with its sounds),
- * then hands the keyboard to the visitor. With reduced motion the
- * description appears whole.
+ * starting once the typewriter has been seen, then hands the keyboard to the
+ * visitor while it's on screen. With reduced motion the description appears
+ * whole.
  *
  * @param columns letters per line (from the measured width)
- * @param isListening whether the visitor's keys should type (the typewriter is on screen)
  */
 export function useTypewriter(
   text: string,
   columns: number,
-  isListening: boolean,
+  { isOnScreen, hasBeenSeen }: { isOnScreen: boolean; hasBeenSeen: boolean },
 ): TypewriterState {
   const { play } = useSound();
   const reducedMotion = useReducedMotion();
@@ -61,9 +61,9 @@ export function useTypewriter(
   const isDescriptionDone = reducedMotion || done >= steps.length;
   const page = pageAt(lines, steps, isDescriptionDone ? steps.length : done);
 
-  // Type the description, one step per tick.
+  // Type the description, one step per tick, once the typewriter has been seen.
   useEffect(() => {
-    if (isDescriptionDone) return;
+    if (isDescriptionDone || !hasBeenSeen) return;
     const timer = setTimeout(
       () => {
         const step = steps[done];
@@ -73,7 +73,7 @@ export function useTypewriter(
       stepDelay(steps, done),
     );
     return () => clearTimeout(timer);
-  }, [done, steps, columns, isDescriptionDone, play]);
+  }, [done, steps, columns, isDescriptionDone, hasBeenSeen, play]);
 
   // Then it's the visitor's turn.
   useEffect(() => {
@@ -91,7 +91,7 @@ export function useTypewriter(
   // The visitor's keys strike the page while the typewriter is on screen.
   const isVisitorsTurn = visitorText !== null;
   useEffect(() => {
-    if (!isVisitorsTurn || !isListening) return;
+    if (!isVisitorsTurn || !isOnScreen) return;
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.metaKey || event.ctrlKey || event.altKey || event.isComposing)
@@ -117,7 +117,7 @@ export function useTypewriter(
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isVisitorsTurn, isListening, columns, play]);
+  }, [isVisitorsTurn, isOnScreen, columns, play]);
 
   const visitorLines =
     visitorText === null ? null : wrapText(visitorText, columns);

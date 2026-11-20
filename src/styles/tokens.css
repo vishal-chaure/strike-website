@@ -57,6 +57,8 @@
 
 /* ---- Timings and the typewriter's shape (used as var(...) in components) ---- */
 :root {
+  --header-height: 4rem;
+
   --duration-strike: 150ms;
   --duration-carriage-advance: 140ms;
   --duration-carriage-return: 420ms;

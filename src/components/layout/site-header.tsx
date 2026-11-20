@@ -12,7 +12,7 @@ import { Container } from "./container";
 export function SiteHeader() {
   return (
     <header>
-      <Container className="flex h-16 items-center gap-8">
+      <Container className="flex h-(--header-height) items-center gap-8">
         <Link
           href="/"
           className="flex items-center gap-2 font-display text-lg tracking-tight"
