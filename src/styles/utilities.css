@@ -1,15 +1,59 @@
-/* Shapes Tailwind has no class for, used as `class="lamp-beam"` etc. */
+/* Shapes Tailwind has no class for, used as `class="lamp-glow"` etc. */
 
-/* The night lamp's wide V of light: brightest at its point (the T), fading upward.
-   Kept soft enough that light text stays readable inside it. */
-@utility lamp-beam {
-  clip-path: polygon(50% 100%, 0 0, 100% 0);
+/*
+ * The night lamp, drawn like the Mac app's: a soft oval glow centred on the T
+ * (the middle of this element's bottom edge),
+ * brightest just above it and fading gently in every direction, seen through a
+ * V that opens 60° either side of straight up. Each side of the V fades out
+ * over a wide band (36°–84°), eased, so its edge softens with distance like a
+ * real lamp's. Peak brightness is kept low enough for light text to read.
+ */
+@utility lamp-glow {
   background: radial-gradient(
-    ellipse 120% 100% at 50% 100%,
-    color-mix(in srgb, var(--color-lamp) 38%, transparent),
-    color-mix(in srgb, var(--color-lamp) 20%, transparent) 35%,
-    color-mix(in srgb, var(--color-lamp) 8%, transparent) 65%,
+    var(--lamp-glow-spread) var(--lamp-glow-reach) at 50% 100%,
+    color-mix(
+      in srgb,
+      var(--color-lamp) calc(var(--lamp-peak) * 100%),
+      transparent
+    ),
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 95%),
+        transparent
+      )
+      25%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 72%),
+        transparent
+      )
+      45%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 40%),
+        transparent
+      )
+      65%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 14%),
+        transparent
+      )
+      82%,
     transparent 100%
+  );
+  mask-image: conic-gradient(
+    from -84deg at 50% calc(100% + var(--lamp-vertex-drop)),
+    transparent 0deg,
+    rgb(0 0 0 / 0.16) 12deg,
+    rgb(0 0 0 / 0.5) 24deg,
+    rgb(0 0 0 / 0.84) 36deg,
+    black 48deg,
+    black 120deg,
+    rgb(0 0 0 / 0.84) 132deg,
+    rgb(0 0 0 / 0.5) 144deg,
+    rgb(0 0 0 / 0.16) 156deg,
+    transparent 168deg
   );
 }
 

@@ -12,7 +12,7 @@
   --color-paper-night: #4e4a44;
   --color-ink: #1c1a18;
   /* The page at night: paper in a dark room, dimmer than the app's night paper. */
-  --color-paper-dim: #2a2723;
+  --color-paper-dim: #1d1b18;
   --color-ribbon-red: #c23b2e;
   --color-amber: #f2b33d;
   --color-amber-light: #f6c866;
@@ -84,8 +84,13 @@
   --slit-width: 1.375rem;
   --slit-height: 0.1875rem;
   --indicator-size: 0.4375rem;
-  --lamp-beam-width: 110rem;
-  --lamp-beam-height: 60rem;
+  /* The lamp's glow: an oval around the T, as wide and tall as the app's on a full window. */
+  --lamp-glow-spread: 100rem;
+  --lamp-glow-reach: 60rem;
+  /* Where the V's sides meet, just below the T, so the V leaves the carriage a little wider than the T. */
+  --lamp-vertex-drop: 0.9375rem;
+  /* Brightest the glow gets (as a share of full lamp colour): bright, but light text still reads. */
+  --lamp-peak: 0.36;
 }
 
 /* ---- Values that change when the lamp is switched on ---- */
