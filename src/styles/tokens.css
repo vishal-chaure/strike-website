@@ -58,6 +58,8 @@
 /* ---- Timings and the typewriter's shape (used as var(...) in components) ---- */
 :root {
   --header-height: 4rem;
+  /* Room left at the bottom of the first screen, so the typewriter shows without scrolling. */
+  --hero-typewriter-room: 15rem;
 
   --duration-strike: 150ms;
   --duration-carriage-advance: 140ms;

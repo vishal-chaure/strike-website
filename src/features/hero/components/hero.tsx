@@ -6,15 +6,15 @@ import { TypewriterDemo } from "../typewriter/typewriter-demo";
 import { HeroActions } from "./hero-actions";
 
 /**
- * The first screen is the headline and the download, centred. Below it, a live
- * typewriter types what Strike is, and the app's window rises from below.
+ * The first screen: the headline and the download, centred, with a live
+ * typewriter below them typing what Strike is. The app's window rises from below.
  */
 export function Hero() {
   const { headline, subtitle, description, yourTurn } = heroContent;
 
   return (
     <section className="relative isolate overflow-x-clip">
-      <Container className="flex min-h-[calc(100dvh-var(--header-height))] flex-col items-center justify-center text-center">
+      <Container className="flex min-h-[calc(100dvh-var(--header-height)-var(--hero-typewriter-room))] flex-col items-center justify-center text-center">
         <h1 className="font-display text-4xl tracking-tight text-balance sm:text-5xl lg:text-6xl">
           {headline.lead}{" "}
           <em className="text-accent transition-colors duration-(--duration-lamp)">
