@@ -90,7 +90,7 @@ export function TypewriterDemo({
     <div ref={area} className="w-full">
       {/* The page: clicking it finishes the typing. */}
       <div
-        className="relative pt-16 text-base"
+        className="relative pt-4 text-base"
         onClick={typewriter.finish}
         aria-hidden
       >
