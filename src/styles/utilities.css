@@ -2,7 +2,7 @@
 
 /*
  * The night lamp, drawn like the Mac app's: a soft oval glow centred on the T
- * (the middle of this element's bottom edge),
+ * (at the middle, `--lamp-vertex-drop` above this element's bottom edge),
  * brightest just above it and fading gently in every direction, seen through a
  * V that opens 60° either side of straight up. Each side of the V fades out
  * over a wide band (36°–84°), eased, so its edge softens with distance like a
@@ -10,7 +10,8 @@
  */
 @utility lamp-glow {
   background: radial-gradient(
-    var(--lamp-glow-spread) var(--lamp-glow-reach) at 50% 100%,
+    var(--lamp-glow-spread) var(--lamp-glow-reach) at 50%
+      calc(100% - var(--lamp-vertex-drop)),
     color-mix(
       in srgb,
       var(--color-lamp) calc(var(--lamp-peak) * 100%),
@@ -43,7 +44,7 @@
     transparent 100%
   );
   mask-image: conic-gradient(
-    from -84deg at 50% calc(100% + var(--lamp-vertex-drop)),
+    from -84deg at 50% 100%,
     transparent 0deg,
     rgb(0 0 0 / 0.16) 12deg,
     rgb(0 0 0 / 0.5) 24deg,
