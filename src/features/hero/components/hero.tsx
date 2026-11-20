@@ -2,12 +2,11 @@ import { Container } from "@/components/layout/container";
 
 import { heroContent } from "../content";
 import { TypewriterDemo } from "../typewriter/typewriter-demo";
-import { AppScreenshot } from "./app-screenshot";
 import { HeroActions } from "./hero-actions";
 
 /**
  * The first screen: the headline and the download, centred, with a live
- * typewriter below them typing what Strike is, then the app itself.
+ * typewriter below them typing what Strike is.
  */
 export function Hero() {
   const { headline, subtitle, description, yourTurn } = heroContent;
@@ -32,11 +31,6 @@ export function Hero() {
       <div>
         <TypewriterDemo text={description} yourTurnHint={yourTurn} />
       </div>
-
-      {/* The app itself, by day or by lamplight to match the page. */}
-      <Container className="mt-12 pb-16">
-        <AppScreenshot />
-      </Container>
     </section>
   );
 }

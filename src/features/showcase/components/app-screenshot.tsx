@@ -1,17 +1,17 @@
 import Image from "next/image";
 
-import { heroContent } from "../content";
+import { showcaseContent } from "../content";
 
 /**
  * Strike itself: a book page in the app, by day or at night to match the
- * page's lamp. Both are in the page; CSS shows the one that matches, so it's
+ * site's lamp. It rises and tilts flat as it scrolls into view. Both are in the page; CSS shows the one that matches, so it's
  * right from the first frame.
  */
 export function AppScreenshot() {
-  const { day, night, width, height } = heroContent.screenshot;
+  const { day, night, width, height } = showcaseContent.screenshot;
 
   return (
-    <div>
+    <div className="tilt-in">
       <Image
         src={day.src}
         alt={day.alt}
