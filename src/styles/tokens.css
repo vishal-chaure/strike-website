@@ -11,7 +11,8 @@
   --color-paper: #f4ecdd;
   --color-paper-night: #4e4a44;
   --color-ink: #1c1a18;
-  --color-room: #0e0d0b;
+  /* The page at night: paper in a dark room, dimmer than the app's night paper. */
+  --color-paper-dim: #2a2723;
   --color-ribbon-red: #c23b2e;
   --color-amber: #f2b33d;
   --color-amber-light: #f6c866;
@@ -79,8 +80,8 @@
   --slit-width: 1.375rem;
   --slit-height: 0.1875rem;
   --indicator-size: 0.4375rem;
-  --lamp-beam-width: 40rem;
-  --lamp-beam-height: 34rem;
+  --lamp-beam-width: 110rem;
+  --lamp-beam-height: 60rem;
 }
 
 /* ---- Values that change when the lamp is switched on ---- */
@@ -96,7 +97,7 @@
 }
 
 :root[data-lamp="on"] {
-  --surface: var(--color-room);
+  --surface: var(--color-paper-dim);
   --text: #efe7d8;
   --text-soft: rgb(239 231 216 / 0.62);
   --text-faint: rgb(239 231 216 / 0.38);

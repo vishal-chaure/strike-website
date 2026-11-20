@@ -1,14 +1,15 @@
 /* Shapes Tailwind has no class for, used as `class="lamp-beam"` etc. */
 
-/* The night lamp's V of light: brightest at its point (the T), fading upward. */
+/* The night lamp's wide V of light: brightest at its point (the T), fading upward.
+   Kept soft enough that light text stays readable inside it. */
 @utility lamp-beam {
-  clip-path: polygon(50% 100%, 4% 0, 96% 0);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
   background: radial-gradient(
-    ellipse 60% 90% at 50% 100%,
-    color-mix(in srgb, var(--color-lamp) 55%, transparent),
-    color-mix(in srgb, var(--color-lamp) 22%, transparent) 40%,
-    color-mix(in srgb, var(--color-lamp) 6%, transparent) 70%,
-    transparent 90%
+    ellipse 120% 100% at 50% 100%,
+    color-mix(in srgb, var(--color-lamp) 38%, transparent),
+    color-mix(in srgb, var(--color-lamp) 20%, transparent) 35%,
+    color-mix(in srgb, var(--color-lamp) 8%, transparent) 65%,
+    transparent 100%
   );
 }
 
@@ -24,9 +25,4 @@
 /* Each struck letter: a touch of ink spreading into the paper. */
 @utility ink {
   text-shadow: 0 0 0.5px currentColor;
-}
-
-/* The top of the typed page melts away, so the lamp's beam has no hard edge. */
-@utility fade-top {
-  mask-image: linear-gradient(to bottom, transparent, black 6rem);
 }

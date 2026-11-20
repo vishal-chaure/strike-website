@@ -13,7 +13,7 @@ export function Hero() {
   const { headline, subtitle, description, yourTurn } = heroContent;
 
   return (
-    <section className="overflow-hidden">
+    <section className="relative isolate overflow-x-clip">
       <Container className="flex flex-col items-center pt-10 text-center sm:pt-16">
         <h1 className="font-display text-4xl tracking-tight text-balance sm:text-5xl lg:text-6xl">
           {headline.lead}{" "}

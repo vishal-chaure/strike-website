@@ -83,11 +83,10 @@ export function TypewriterDemo({
     <div ref={area} className="w-full">
       {/* The page: clicking it finishes the typing. */}
       <div
-        className="relative overflow-hidden fade-top pt-16 text-base"
+        className="relative pt-16 text-base"
         onClick={typewriter.finish}
         aria-hidden
       >
-        <LampLight position={position} />
         <div className="relative mx-auto" style={{ width: `${columns}ch` }}>
           <TypedLines lines={typewriter.lines} />
           {typewriter.visitorLines && (
@@ -110,6 +109,7 @@ export function TypewriterDemo({
         className={metrics ? "mt-(--rail-gap)" : "invisible mt-(--rail-gap)"}
       >
         <Rail>
+          <LampLight position={position} />
           <Carriage
             position={position}
             strikes={typewriter.strikes}
