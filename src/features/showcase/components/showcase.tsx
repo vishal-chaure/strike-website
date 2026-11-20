@@ -7,7 +7,7 @@ import { AppScreenshot } from "./app-screenshot";
  * What Strike does. The app's window peeks up under the hero; scrolling lifts
  * it into view, then it glides right and turns in 3D (its left edge swinging
  * back) and stays there while the features slide in from the left, one at a
- * time. Without scroll animations (or on small screens) it's simply the
+ * time, their text passing over its left side. Without scroll animations (or on small screens) it's simply the
  * app, then the features in a list.
  */
 export function Showcase() {
@@ -26,7 +26,7 @@ export function Showcase() {
         </Container>
       </div>
 
-      <Container className="mt-16 scroll-fx-lg:-mt-[100dvh] scroll-fx-lg:grid scroll-fx-lg:grid-cols-[2fr_3fr] scroll-fx-lg:gap-16">
+      <Container className="relative z-10 mt-16 scroll-fx-lg:-mt-[100dvh] scroll-fx-lg:grid scroll-fx-lg:grid-cols-[2fr_3fr] scroll-fx-lg:gap-16">
         <ol className="flex flex-col gap-16 scroll-fx-lg:gap-0 scroll-fx-lg:pt-(--features-lead)">
           {showcaseContent.features.map((feature, index) => (
             <li

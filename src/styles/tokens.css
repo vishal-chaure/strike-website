@@ -85,10 +85,11 @@
   --lamp-glow-reach: 60rem;
   /* Where the V's sides meet, just below the T, so the V leaves the carriage a little wider than the T. */
   --lamp-vertex-drop: 0.9375rem;
-  /* Where the screenshot settles beside the features: the centre of the wider
-     (3fr) column, and that column's width, as shares of the full width. */
-  --aside-shift: 21.6%;
-  --aside-scale: 0.57;
+  /* Where the screenshot settles beside the features, as shares of its full
+     size: still large, its right edge near the page's, its left side passing
+     under the features' text. */
+  --aside-shift: 12%;
+  --aside-scale: 0.8;
   /* ...and how it turns there: its left edge swings back into the page. */
   --turn-perspective: 1800px;
   --turn-angle: -22deg;
