@@ -5,6 +5,24 @@
 /* `lamp-on:` styles apply while the night lamp is on (data-lamp="on" on <html>). */
 @custom-variant lamp-on (&:where([data-lamp="on"], [data-lamp="on"] *));
 
+/* `scroll-fx:` styles apply where scroll-driven animations work and motion is welcome. */
+@custom-variant scroll-fx {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      @slot;
+    }
+  }
+}
+
+/* `scroll-fx-lg:` the same, on screens wide enough for the side-by-side features. */
+@custom-variant scroll-fx-lg {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) and (width >= 64rem) {
+      @slot;
+    }
+  }
+}
+
 @layer base {
   body {
     @apply bg-surface font-typewriter text-text antialiased;

@@ -188,42 +188,53 @@
 }
 
 /*
- * Scroll animations, driven by the page's scroll (no JavaScript). Browsers
- * without scroll-driven animations, and visitors who asked for less motion,
- * simply see everything still.
+ * Scroll animations, driven by the page's scroll (no JavaScript). Apply them
+ * with the `scroll-fx:` / `scroll-fx-lg:` variants (see globals.css), so
+ * browsers without scroll-driven animations, and visitors who asked for less
+ * motion, get the plain still layout.
  */
 
-/* Rises from tilted back to flat as it scrolls into view, like a laptop lid opening. */
+/* The features section's scroll, which the app screenshot's motion follows. */
+@utility showcase-timeline {
+  view-timeline-name: --showcase;
+}
+
+/* Rises from tilted back to flat while the features section scrolls up into view. */
 @utility tilt-in {
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      transform-origin: 50% 100%;
-      animation: tilt-in linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 40%;
-    }
-  }
+  transform-origin: 50% 100%;
+  animation: tilt-in linear both;
+  animation-timeline: --showcase;
+  animation-range: entry 0% entry 100%;
+}
+
+/* Then glides to the right and settles smaller, making room for the features. */
+@utility slide-aside {
+  animation: slide-aside linear both;
+  animation-timeline: --showcase;
+  animation-range: contain 0% contain 12%;
 }
 
 /* Brightens while it passes the middle of the screen, dim before and after. */
 @utility scroll-spotlight {
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      animation: scroll-spotlight linear both;
-      animation-timeline: view();
-    }
-  }
+  animation: scroll-spotlight linear both;
+  animation-timeline: view();
 }
 
 @keyframes tilt-in {
   from {
-    opacity: 0.4;
+    opacity: 0.5;
     transform: perspective(var(--tilt-perspective)) rotateX(var(--tilt-angle))
       scale(var(--tilt-scale));
   }
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes slide-aside {
+  to {
+    transform: translateX(var(--aside-shift)) scale(var(--aside-scale));
   }
 }
 

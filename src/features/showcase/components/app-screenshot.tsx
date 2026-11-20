@@ -4,14 +4,14 @@ import { showcaseContent } from "../content";
 
 /**
  * Strike itself: a book page in the app, by day or at night to match the
- * site's lamp. It rises and tilts flat as it scrolls into view. Both are in the page; CSS shows the one that matches, so it's
+ * site's lamp. Both are in the page; CSS shows the one that matches, so it's
  * right from the first frame.
  */
 export function AppScreenshot() {
   const { day, night, width, height } = showcaseContent.screenshot;
 
   return (
-    <div className="tilt-in">
+    <div>
       <Image
         src={day.src}
         alt={day.alt}
