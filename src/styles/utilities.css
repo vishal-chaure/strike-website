@@ -9,14 +9,40 @@
  * real lamp's. Peak brightness is kept low enough for light text to read.
  */
 @utility lamp-glow {
+  /* Many small steps along smooth curves, so neither fade shows seams. */
   background: radial-gradient(
     var(--lamp-glow-spread) var(--lamp-glow-reach) at 50%
       calc(100% - var(--lamp-vertex-drop)),
     color-mix(
-      in srgb,
-      var(--color-lamp) calc(var(--lamp-peak) * 100%),
-      transparent
-    ),
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 100%),
+        transparent
+      )
+      0%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 99.4%),
+        transparent
+      )
+      5%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 99%),
+        transparent
+      )
+      10%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 98.4%),
+        transparent
+      )
+      15%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 97.2%),
+        transparent
+      )
+      20%,
     color-mix(
         in srgb,
         var(--color-lamp) calc(var(--lamp-peak) * 95%),
@@ -25,10 +51,46 @@
       25%,
     color-mix(
         in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 91.1%),
+        transparent
+      )
+      30%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 85.5%),
+        transparent
+      )
+      35%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 78.9%),
+        transparent
+      )
+      40%,
+    color-mix(
+        in srgb,
         var(--color-lamp) calc(var(--lamp-peak) * 72%),
         transparent
       )
       45%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 64.6%),
+        transparent
+      )
+      50%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 56.5%),
+        transparent
+      )
+      55%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 48.1%),
+        transparent
+      )
+      60%,
     color-mix(
         in srgb,
         var(--color-lamp) calc(var(--lamp-peak) * 40%),
@@ -37,25 +99,78 @@
       65%,
     color-mix(
         in srgb,
-        var(--color-lamp) calc(var(--lamp-peak) * 14%),
+        var(--color-lamp) calc(var(--lamp-peak) * 31.9%),
         transparent
       )
-      82%,
-    transparent 100%
+      70%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 23.7%),
+        transparent
+      )
+      75%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 16.5%),
+        transparent
+      )
+      80%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 10.9%),
+        transparent
+      )
+      85%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 6.8%),
+        transparent
+      )
+      90%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 3.5%),
+        transparent
+      )
+      95%,
+    color-mix(
+        in srgb,
+        var(--color-lamp) calc(var(--lamp-peak) * 0%),
+        transparent
+      )
+      100%
   );
   mask-image: conic-gradient(
     from -84deg at 50% 100%,
-    transparent 0deg,
-    rgb(0 0 0 / 0.16) 12deg,
+    rgb(0 0 0 / 0) 0deg,
+    rgb(0 0 0 / 0.005) 4deg,
+    rgb(0 0 0 / 0.035) 8deg,
+    rgb(0 0 0 / 0.104) 12deg,
+    rgb(0 0 0 / 0.21) 16deg,
+    rgb(0 0 0 / 0.347) 20deg,
     rgb(0 0 0 / 0.5) 24deg,
-    rgb(0 0 0 / 0.84) 36deg,
-    black 48deg,
-    black 120deg,
-    rgb(0 0 0 / 0.84) 132deg,
+    rgb(0 0 0 / 0.653) 28deg,
+    rgb(0 0 0 / 0.79) 32deg,
+    rgb(0 0 0 / 0.896) 36deg,
+    rgb(0 0 0 / 0.965) 40deg,
+    rgb(0 0 0 / 0.995) 44deg,
+    rgb(0 0 0 / 1) 48deg,
+    rgb(0 0 0 / 1) 120deg,
+    rgb(0 0 0 / 0.995) 124deg,
+    rgb(0 0 0 / 0.965) 128deg,
+    rgb(0 0 0 / 0.896) 132deg,
+    rgb(0 0 0 / 0.79) 136deg,
+    rgb(0 0 0 / 0.653) 140deg,
     rgb(0 0 0 / 0.5) 144deg,
-    rgb(0 0 0 / 0.16) 156deg,
-    transparent 168deg
+    rgb(0 0 0 / 0.347) 148deg,
+    rgb(0 0 0 / 0.21) 152deg,
+    rgb(0 0 0 / 0.104) 156deg,
+    rgb(0 0 0 / 0.035) 160deg,
+    rgb(0 0 0 / 0.005) 164deg,
+    rgb(0 0 0 / 0) 168deg
   );
+  /* A slight blur melts any remaining banding in the dark tones. */
+  filter: blur(6px);
 }
 
 /* The rail's tube: a dark glossy bar, lit from above. */
