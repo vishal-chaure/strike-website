@@ -14,15 +14,15 @@ export function Hero() {
 
   return (
     <section className="overflow-hidden">
-      <Container className="flex flex-col items-center pt-16 text-center sm:pt-24">
-        <h1 className="font-display text-5xl tracking-tight text-balance sm:text-7xl lg:text-8xl">
+      <Container className="flex flex-col items-center pt-10 text-center sm:pt-16">
+        <h1 className="font-display text-4xl tracking-tight text-balance sm:text-5xl lg:text-6xl">
           {headline.lead}{" "}
           <em className="text-accent transition-colors duration-(--duration-lamp)">
             {headline.accent}
           </em>
         </h1>
-        <p className="mt-6 text-lg text-text-soft sm:text-xl">{subtitle}</p>
-        <div className="mt-10">
+        <p className="mt-4 text-base text-text-soft sm:text-lg">{subtitle}</p>
+        <div className="mt-8">
           <HeroActions />
         </div>
         {/* The typewriter types this for the eye; screen readers get it whole. */}
@@ -34,7 +34,7 @@ export function Hero() {
       </div>
 
       {/* The app itself, peeking up from below. A screenshot goes here. */}
-      <Container className="mt-16">
+      <Container className="mt-12">
         <div className="h-64 overflow-hidden sm:h-80">
           <MacWindow className="h-144" />
         </div>

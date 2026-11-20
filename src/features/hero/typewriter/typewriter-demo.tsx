@@ -33,7 +33,8 @@ export function TypewriterDemo({
   const [metrics, setMetrics] = useState<Metrics | null>(null);
   const [isOnScreen, setIsOnScreen] = useState(false);
 
-  // Measure the page (and again whenever it resizes).
+  // Measure the page and a letter (again whenever either resizes, e.g. when
+  // the window changes or the typewriter font finishes loading).
   useEffect(() => {
     const element = area.current;
     const sample = letter.current;
@@ -51,6 +52,7 @@ export function TypewriterDemo({
       });
     });
     observer.observe(element);
+    observer.observe(sample);
     return () => observer.disconnect();
   }, []);
 
@@ -81,7 +83,7 @@ export function TypewriterDemo({
     <div ref={area} className="w-full">
       {/* The page: clicking it finishes the typing. */}
       <div
-        className="relative overflow-hidden fade-top pt-24 text-lg"
+        className="relative overflow-hidden fade-top pt-16 text-base"
         onClick={typewriter.finish}
         aria-hidden
       >
@@ -119,7 +121,7 @@ export function TypewriterDemo({
 
       <p
         className={cn(
-          "mt-6 text-center text-sm text-text-faint transition-opacity duration-(--duration-lamp) pointer-coarse:hidden",
+          "mt-5 text-center text-xs text-text-faint transition-opacity duration-(--duration-lamp) pointer-coarse:hidden",
           typewriter.visitorLines ? "opacity-100" : "opacity-0",
         )}
       >

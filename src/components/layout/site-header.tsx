@@ -12,16 +12,16 @@ import { Container } from "./container";
 export function SiteHeader() {
   return (
     <header>
-      <Container className="flex h-20 items-center gap-8">
+      <Container className="flex h-16 items-center gap-8">
         <Link
           href="/"
-          className="flex items-center gap-2.5 font-display text-xl tracking-tight"
+          className="flex items-center gap-2 font-display text-lg tracking-tight"
         >
           <Image
             src="/app-icon.png"
             alt=""
-            width={28}
-            height={28}
+            width={24}
+            height={24}
             className="rounded-md"
             priority
           />
@@ -30,7 +30,7 @@ export function SiteHeader() {
 
         <nav
           aria-label="Main"
-          className="ml-auto hidden gap-6 text-sm text-text-soft md:flex"
+          className="ml-auto hidden gap-6 text-xs text-text-soft md:flex"
         >
           {headerLinks.map((link) => (
             <Link

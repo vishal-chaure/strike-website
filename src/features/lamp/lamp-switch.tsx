@@ -24,7 +24,7 @@ export function LampSwitch() {
         className: "lamp-on:border-amber/40 lamp-on:text-amber",
       })}
     >
-      <BulbIcon className="size-4 lamp-on:drop-shadow-[0_0_6px_var(--color-amber)]" />
+      <BulbIcon className="size-3.5 lamp-on:drop-shadow-[0_0_6px_var(--color-amber)]" />
       <span className="lamp-on:hidden">Lamp off</span>
       <span className="hidden lamp-on:inline">Lamp on</span>
     </button>

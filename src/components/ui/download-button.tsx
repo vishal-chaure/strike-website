@@ -13,7 +13,7 @@ export function DownloadButton({
 }) {
   return (
     <a href={site.download.url} className={buttonClassName({ size })}>
-      <AppleIcon className={size === "sm" ? "size-3.5" : "size-4.5"} />
+      <AppleIcon className={size === "sm" ? "size-3" : "size-4"} />
       {label}
     </a>
   );
