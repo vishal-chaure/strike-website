@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Courier_Prime } from "next/font/google";
+import { Cutive_Mono, Special_Elite } from "next/font/google";
 
 import { SiteHeader } from "@/components/layout/site-header";
 import { site } from "@/config/site";
@@ -8,11 +8,18 @@ import { SoundProvider } from "@/features/sound";
 
 import "./globals.css";
 
-const courierPrime = Courier_Prime({
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
+// Headlines and labels: a worn, inky typewriter face.
+const specialElite = Special_Elite({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-courier-prime",
+  variable: "--font-special-elite",
+});
+
+// Everything you read: a quiet, classic typewriter face.
+const cutiveMono = Cutive_Mono({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-cutive-mono",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-lamp="off"
-      className={courierPrime.variable}
+      className={`${specialElite.variable} ${cutiveMono.variable}`}
       suppressHydrationWarning
     >
       <head>

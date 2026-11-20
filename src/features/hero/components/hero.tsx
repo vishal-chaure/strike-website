@@ -15,7 +15,7 @@ export function Hero() {
   return (
     <section className="overflow-hidden">
       <Container className="flex flex-col items-center pt-16 text-center sm:pt-24">
-        <h1 className="text-5xl font-bold tracking-tight text-balance sm:text-7xl lg:text-8xl">
+        <h1 className="font-display text-5xl tracking-tight text-balance sm:text-7xl lg:text-8xl">
           {headline.lead}{" "}
           <em className="text-accent transition-colors duration-(--duration-lamp)">
             {headline.accent}

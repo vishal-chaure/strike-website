@@ -15,7 +15,7 @@ export function SiteHeader() {
       <Container className="flex h-20 items-center gap-8">
         <Link
           href="/"
-          className="flex items-center gap-2.5 text-xl font-bold tracking-tight"
+          className="flex items-center gap-2.5 font-display text-xl tracking-tight"
         >
           <Image
             src="/app-icon.png"

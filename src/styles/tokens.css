@@ -5,7 +5,8 @@
 
 /* ---- Fixed values: become Tailwind utilities (bg-paper, text-ink, ...) ---- */
 @theme {
-  --font-typewriter: var(--font-courier-prime), "Courier New", monospace;
+  --font-typewriter: var(--font-cutive-mono), "Courier New", monospace;
+  --font-display: var(--font-special-elite), var(--font-typewriter);
 
   --color-paper: #f4ecdd;
   --color-paper-night: #4e4a44;

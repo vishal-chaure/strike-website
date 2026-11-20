@@ -30,7 +30,7 @@ export function buttonClassName({
   className?: string;
 } = {}): string {
   return cn(
-    "inline-flex items-center justify-center rounded-full font-bold whitespace-nowrap transition-[translate,box-shadow,border-color,color] duration-200 ease-typewriter active:translate-y-px",
+    "inline-flex items-center justify-center rounded-full font-display whitespace-nowrap transition-[translate,box-shadow,border-color,color] duration-200 ease-typewriter active:translate-y-px",
     variants[variant],
     sizes[size],
     className,
