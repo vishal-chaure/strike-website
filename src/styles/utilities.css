@@ -199,52 +199,38 @@
   view-timeline-name: --showcase;
 }
 
-/* Rises from tilted back to flat while the features section scrolls up into view. */
-@utility tilt-in {
-  transform-origin: 50% 100%;
-  animation: tilt-in linear both;
-  animation-timeline: --showcase;
-  animation-range: entry 0% entry 100%;
-}
-
-/* Then glides to the right and settles smaller, making room for the features. */
-@utility slide-aside {
-  animation: slide-aside linear both;
+/* Glides to the right, settles smaller and turns in 3D (left edge back), making room for the features. */
+@utility turn-aside {
+  animation: turn-aside linear both;
   animation-timeline: --showcase;
   animation-range: contain 0% contain 12%;
 }
 
-/* Brightens while it passes the middle of the screen, dim before and after. */
-@utility scroll-spotlight {
-  animation: scroll-spotlight linear both;
+/* Slides in from the left and fades in as it rises to the middle of the screen; fades out as it leaves. */
+@utility feature-pass {
+  animation: feature-pass linear both;
   animation-timeline: view();
 }
 
-@keyframes tilt-in {
-  from {
-    opacity: 0.5;
-    transform: perspective(var(--tilt-perspective)) rotateX(var(--tilt-angle))
-      scale(var(--tilt-scale));
-  }
+@keyframes turn-aside {
   to {
+    transform: perspective(var(--turn-perspective))
+      translateX(var(--aside-shift)) scale(var(--aside-scale))
+      rotateY(var(--turn-angle));
+  }
+}
+
+@keyframes feature-pass {
+  0% {
+    opacity: 0;
+    transform: translateX(calc(var(--feature-slide) * -1));
+  }
+  35%,
+  65% {
     opacity: 1;
     transform: none;
   }
-}
-
-@keyframes slide-aside {
-  to {
-    transform: translateX(var(--aside-shift)) scale(var(--aside-scale));
-  }
-}
-
-@keyframes scroll-spotlight {
-  0%,
   100% {
-    opacity: var(--spotlight-dim);
-  }
-  40%,
-  60% {
-    opacity: 1;
+    opacity: 0;
   }
 }

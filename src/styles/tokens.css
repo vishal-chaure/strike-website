@@ -85,18 +85,17 @@
   --lamp-glow-reach: 60rem;
   /* Where the V's sides meet, just below the T, so the V leaves the carriage a little wider than the T. */
   --lamp-vertex-drop: 0.9375rem;
-  /* The app screenshot scrolling in: how far back it starts tilted, and how small. */
-  --tilt-perspective: 1600px;
-  --tilt-angle: 28deg;
-  --tilt-scale: 0.88;
   /* Where the screenshot settles beside the features: the centre of the wider
      (3fr) column, and that column's width, as shares of the full width. */
   --aside-shift: 21.6%;
   --aside-scale: 0.57;
-  /* How far the features start below the screenshot, so they arrive as it moves aside. */
+  /* ...and how it turns there: its left edge swings back into the page. */
+  --turn-perspective: 1800px;
+  --turn-angle: -22deg;
+  /* How far the features start below the screenshot, so they arrive as it turns aside. */
   --features-lead: 100dvh;
-  /* How faint a feature is away from the middle of the screen. */
-  --spotlight-dim: 0.25;
+  /* How far a feature slides in from the left as it arrives. */
+  --feature-slide: 4rem;
 
   /* Brightest the glow gets (as a share of full lamp colour): bright, but light text still reads. */
   --lamp-peak: 0.36;
